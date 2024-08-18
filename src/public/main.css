@@ -1,15 +1,23 @@
-/* Gradient text and shadow for a bubbly effect */
-h1 {
-    background: linear-gradient(135deg, #9163c2, #2b4a80);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.107);
-  }
+
   
   /* Additional style for making text more bubbly */
   body {
     font-family: 'Arial', cursive, sans-serif;
   }
+
+/* Gradient text and shadow for a bubbly effect */
+h1 {
+    background: linear-gradient(135deg, #63F2E4, #157EBF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.107);
+  }
+
+  .logo {
+    height: 50px; /* Adjust size as needed */
+    margin-right: 20px; /* Space between logo and other elements */
+    border-radius: 10px;
+}
   
   .container {
     max-width: 800px;
@@ -27,9 +35,14 @@ h1 {
     box-sizing: border-box;
   }
   
-  /* Apply a lighter background gradient */
+  /* Apply a pictrure background */
   body {
-    background: linear-gradient(135deg, rgba(106, 17, 203, 0.5) 0%, rgba(37, 117, 252, 0.5) 100%);
+   background-image: url('pexels-scottwebb-139205.jpg');
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+   height: 100vh;
+   margin: 0;
     color: #333;
   }
   
@@ -94,6 +107,12 @@ h1 {
     color: #09050f;
     margin-top: 20px;
     margin-bottom: 20px;
+  }
+
+  h3 {
+    color: #09050f;
+    margin-top: 20px;
+    margin-bottom: 10px;
   }
   
   /* Style for the cards */
