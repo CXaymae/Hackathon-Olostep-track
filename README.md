@@ -90,14 +90,20 @@ Contributions are welcome! Please follow these steps to contribute:
 4. Push to the branch (`git push origin feature-branch`).
 5. Open a pull request.
 
+## For the Future 
+
+Text summarization and sentiment analysis (negative or positive) 
+is it a podcast or article
+ecommerce or technology or news
+region and language translation
+Mention sensitive content disclaimer if detected
+If refused, the scraper will be blank
+Allow users to filter content
+
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Contact
-
-For any questions or issues, please contact:
-
-- **Your Name:** 
-- **GitHub Profile:** [[[your](https://github.com/CXaymae)
+## Image
 
