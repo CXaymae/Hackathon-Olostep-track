@@ -34,7 +34,11 @@
       const data = await response.json();
       const results = document.getElementById('results');
       if (response.ok) {
-        results.innerHTML = `<h2>${data.title}</h2><p>${data.content}</p>`;
+        results.innerHTML = `
+          <h2>${data.title}</h2>
+          <p>${data.content}</p>
+          <h3>Keywords: ${data.themes}</h3>
+        `;
       } else {
         results.innerHTML = `<p>Error: ${data.error}</p>`;
       }

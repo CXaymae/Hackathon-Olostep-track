@@ -29,6 +29,9 @@ connectDB(); // Call the connectDB function
 const scrapeRoutes = require('./routes/scrape')(mongoose.connection); // Update this line
 app.use('/scrape', scrapeRoutes);
 
+const categorizeRoutes = require('./routes/categorize')(mongoose.connection);
+app.use('/categorize', categorizeRoutes);
+
 // Start Server
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
