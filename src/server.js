@@ -1,7 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const { MongoClient } = require('mongodb');
+const mongoose = require('mongoose'); // Add this line
 require('dotenv').config();
+
 
 const app = express();
 const port = 3003;
@@ -12,21 +13,23 @@ app.use(bodyParser.json());
 app.use(express.static('src/public'));
 
 // MongoDB Connection
-const uri = process.env.MONGODB_URI;
-let db;
-
-MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(client => {
-    db = client.db('webscraper');
+const connectDB = async () => { // Add this function
+  try {
+    await mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
     console.log('Connected to MongoDB');
+  } catch (error) {
+    console.error(error);
+    process.exit(1); // Exit process with failure
+  }
+};
 
-    // Routes - only after the db is connected
-    const scrapeRoutes = require('./routes/scrape')(db);
-    app.use('/scrape', scrapeRoutes);
+connectDB(); // Call the connectDB function
 
-    // Start Server
-    app.listen(port, () => {
-      console.log(`Server running at http://localhost:${port}`);
-    });
-  })
-  .catch(error => console.error(error));
+// Routes - only after the db is connected
+const scrapeRoutes = require('./routes/scrape')(mongoose.connection); // Update this line
+app.use('/scrape', scrapeRoutes);
+
+// Start Server
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`);
+});
